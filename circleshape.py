@@ -13,9 +13,7 @@ class CircleShape(pygame.sprite.Sprite):
         self.radius: float = radius
 
     def draw(self, screen: pygame.Surface):
-        # subclass to override
-        pass
+        raise NotImplementedError("implement this in a child class")
 
     def update(self, dt: float):
-        # subclass to override
-        pass
+        raise NotImplementedError("implement this in a child class")
