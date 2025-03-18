@@ -1,4 +1,5 @@
 import pygame
+import sys
 from asteroid import Asteroid
 from asteroid_field import AsteroidField
 from constants import *
@@ -46,6 +47,12 @@ def main():
 
         for obj in drawable:
             obj.draw(screen)
+
+        # exit cond
+        for asteroid in asteroids:
+            if player.collides_with(asteroid):
+                print("Game over!")
+                sys.exit(0)
 
         # refresh
         pygame.display.flip()
