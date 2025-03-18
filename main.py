@@ -25,10 +25,12 @@ def main():
         # update
         _ = screen.fill(bgcolor)
 
+        player.update(dt)
+
         # refresh
         player.draw(screen)
         pygame.display.flip()
-        _ = clock.tick(60)
+        dt = clock.tick(60)
 
 
 if __name__ == "__main__":
