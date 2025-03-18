@@ -54,6 +54,11 @@ def main():
 
         # exit cond
         for asteroid in asteroids:
+            for shot in shots:
+                if shot.collides_with(asteroid):
+                    shot.kill()
+                    asteroid.kill()
+
             if player.collides_with(asteroid):
                 print("Game over!")
                 sys.exit(0)
