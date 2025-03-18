@@ -1,5 +1,6 @@
 import pygame
 from constants import *
+from player import Player
 
 
 def main():
@@ -13,6 +14,7 @@ def main():
     clock = pygame.time.Clock()
     dt = 0
     bgcolor = (0, 0, 0)
+    player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
     while True:
         # event handling
@@ -24,6 +26,7 @@ def main():
         _ = screen.fill(bgcolor)
 
         # refresh
+        player.draw(screen)
         pygame.display.flip()
         _ = clock.tick(60)
 
