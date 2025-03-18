@@ -1,4 +1,27 @@
+from typing import override
+import pygame
+from circleshape import CircleShape
+from constants import (
+    PLAYER_RADIUS,
+    PLAYER_SHOOT_COOLDOWN,
+    PLAYER_SHOOT_SPEED,
+    PLAYER_SPEED,
+    PLAYER_TURN_SPEED,
+    SHOT_RADIUS,
+)
+from shot import Shot
 
+
+class Player(CircleShape):
+    def __init__(self, x: float, y: float):
+        super().__init__(x, y, PLAYER_RADIUS)
+        self.rotation: float = 0.0
+        self.timer: float = 0.0
+
+    def triangle(self):
+        forward = pygame.Vector2(0, 1).rotate(self.rotation)
+        right = pygame.Vector2(0, 1).rotate(self.rotation + 90) * self.radius / 1.5
+        a = self.position + forward * self.radius
         b = self.position - forward * self.radius - right
         c = self.position - forward * self.radius + right
         return [a, b, c]
