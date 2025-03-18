@@ -1,5 +1,6 @@
 import pygame
 from asteroid import Asteroid
+from asteroid_field import AsteroidField
 from constants import *
 from player import Player
 
@@ -24,10 +25,12 @@ def main():
     # add classes to groups
     Player.containers = (updatable, drawable)
     Asteroid.containers = (updatable, drawable, asteroids)
+    AsteroidField.containers = updatable
 
     # instances
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
-    asteroid = Asteroid(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 3)
+    field = AsteroidField()
+    # asteroid = Asteroid(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 3)
 
     while True:
         # event handling
